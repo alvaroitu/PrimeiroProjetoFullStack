@@ -1,4 +1,4 @@
-package com.alvaroitu.Todo;
+package com.alvaroitu.todo;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

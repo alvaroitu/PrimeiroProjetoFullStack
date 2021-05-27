@@ -1,4 +1,4 @@
-package com.alvaroitu.Todo.domain;
+package com.alvaroitu.todo.domain;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
