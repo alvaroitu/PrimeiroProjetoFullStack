@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.alvaroitu.todo.domain.Todo;
 import com.alvaroitu.todo.services.TodoService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/todos")
 public class TodoResource {
@@ -27,32 +29,26 @@ public class TodoResource {
 
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Todo> findById(@PathVariable Integer id) {
-
 		Todo obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
-
 	}
 
 	@GetMapping(value = "/open")
 	public ResponseEntity<List<Todo>> listOpen() {
 		List<Todo> list = service.findAllOpen();
 		return ResponseEntity.ok().body(list);
-
 	}
 
 	@GetMapping(value = "/close")
 	public ResponseEntity<List<Todo>> listClose() {
-
 		List<Todo> list = service.findAllClose();
 		return ResponseEntity.ok().body(list);
-
 	}
 
 	@GetMapping
 	public ResponseEntity<List<Todo>> listAll() {
 		List<Todo> list = service.findAll();
 		return ResponseEntity.ok().body(list);
-
 	}
 
 	@PostMapping
@@ -67,12 +63,12 @@ public class TodoResource {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
-	
+
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<Todo> update(@PathVariable Integer id, @RequestBody Todo obj){
+	public ResponseEntity<Todo> update(@PathVariable Integer id, @RequestBody Todo obj) {
 		Todo newObj = service.update(id, obj);
 		return ResponseEntity.ok().body(newObj);
-		
+
 	}
 
 }

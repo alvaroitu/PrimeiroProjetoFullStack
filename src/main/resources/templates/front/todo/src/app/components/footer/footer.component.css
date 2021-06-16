@@ -2,6 +2,15 @@
     height: 5%;
     position: fixed;
     bottom: 0;
-    justify-content: flex-end;
-    font-size: 1rem;
+    justify-content: flex-end;    
 }
+
+img{
+    height: 1.5rem;
+    padding: 1rem;    
+}
+
+span{
+    font-size: 1rem;        
+}
+
